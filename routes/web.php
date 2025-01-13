@@ -21,6 +21,14 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/kriteria', [KriteriaController::class, 'kriteria'])->middleware(['auth'])->name('kriteria');
+Route::get('/addKriteria', [KriteriaController::class, 'addKriteria'])->middleware(['auth'])->name('addKriteria');
+Route::post('/saveKriteria', [KriteriaController::class, 'saveKriteria'])->middleware(['auth'])->name('saveKriteria');
+Route::post('/saveEditedKriteria', [KriteriaController::class, 'saveEditedKriteria'])->middleware(['auth'])->name('saveEditedKriteria');
+Route::get('/deleteKriteria/{idKriteria}', [KriteriaController::class, 'deleteKriteria'])->middleware(['auth'])->name('deleteKriteria');
+Route::get('/editKriteria/{idKriteria}', [KriteriaController::class, 'editKriteria'])->middleware(['auth'])->name('editKriteria');
+
+
+
 
 
 require __DIR__.'/auth.php';
