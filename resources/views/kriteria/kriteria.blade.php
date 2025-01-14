@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <div class="p-6 bg-white rounded-lg shadow-md">
     <h1 class="text-2xl font-bold mb-4">Kriteria</h1>
     <div class="mb-4 flex justify-between items-center">
@@ -47,12 +48,32 @@
     }
 
     function hapus(idKriteria) {
-        const isConfirmed = confirm("Apakah Anda yakin ingin menghapus data ini?");
-        if (isConfirmed) {
-            window.location.href = 'deleteKriteria/' + idKriteria;
-        } else {
-            alert("Penghapusan dibatalkan.");
-        }
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data ini akan dihapus secara permanen!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Terhapus!',
+                    'Data berhasil dihapus.',
+                    'success'
+                ).then(() => {
+                    window.location.href = 'deleteKriteria/' + idKriteria;
+                });
+            } else {
+                Swal.fire(
+                    'Dibatalkan',
+                    'Data Anda aman.',
+                    'info'
+                );
+            }
+        });
     }
 </script>
 @endsection
