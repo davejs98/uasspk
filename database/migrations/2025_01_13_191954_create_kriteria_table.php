@@ -17,7 +17,7 @@ class CreateKriteriaTable extends Migration
             $table->string('idKriteria', 10)->primary(); // Primary key
             $table->string('namaKriteria'); // Nama kriteria
             $table->enum('tipe', ['Benefit', 'Cost']); // Tipe (Benefit/Cost)
-            $table->string('bobot'); // Bobot (e.g., "15%")
+            $table->double('bobot'); // Bobot (e.g., "15%")
             $table->timestamps(); // created_at and updated_at
         });
     }

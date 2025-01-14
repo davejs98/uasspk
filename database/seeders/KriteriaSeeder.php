@@ -17,7 +17,7 @@ class KriteriaSeeder extends Seeder
             'idKriteria' => 'K1',
             'namaKriteria' => 'Riwayat Pendidikan',
             'tipe' => 'Benefit',
-            'bobot' => '15%',
+            'bobot' => 20,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
