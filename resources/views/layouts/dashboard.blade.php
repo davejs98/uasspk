@@ -18,7 +18,7 @@
         <nav class="mt-5">
             <a href="dashboard" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-800">Dashboard</a>
             <a href="kriteria" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-800">Kriteria</a>
-            <a href="calonkaryawan" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-800">Calon Karyawan</a>
+            <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-800">Alternatif</a>
             <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-800">Perhitungan</a>
             <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-800">Hasil Akhir</a>
         </nav>
@@ -33,7 +33,7 @@
                 ☰
             </button>
             <div class="text-right">
-                <span class="text-gray-700 font-semibold">Henry Klein</span>
+                <span class="text-gray-700 font-semibold"></span>
             </div>
         </header>
 
