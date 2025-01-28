@@ -6,6 +6,11 @@
 
     <form action="/saveEditedCalonKaryawan" method="post" class="space-y-4">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        @if ($getCalonKaryawan->foto)
+            <img src="{{ asset('storage/' . $getCalonKaryawan->foto) }}" alt="Foto {{ $getCalonKaryawan ->foto }}" class="w-20 h-20 object-cover">
+        @else
+            <span class="text-gray-500">Tidak ada foto</span>
+        @endif
 
         <div>
             <label for="idCalonKaryawan" class="block text-sm font-medium text-gray-700">ID Calon Karyawan</label>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CalonKaryawanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\konversi;
 use App\Http\Controllers\KriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,6 @@ Route::post('/saveEditedCalonKaryawan', [CalonKaryawanController::class, 'saveEd
 Route::get('/deleteCalonKaryawan/{idCalonKaryawan}', [CalonKaryawanController::class, 'deleteCalonKaryawan'])->middleware(['auth'])->name('deleteCalonKaryawan');
 Route::get('/editCalonKaryawan/{idCalonKaryawan}', [CalonKaryawanController::class, 'editCalonKaryawan'])->middleware(['auth'])->name('editCalonKaryawan');
 
-
+Route::get('/konversi', [konversi::class, 'bacakonversi'])->middleware(['auth'])->name('bacakonversi');
 
 require __DIR__.'/auth.php';

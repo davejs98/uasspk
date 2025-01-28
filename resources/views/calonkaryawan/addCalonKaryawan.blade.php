@@ -2,13 +2,17 @@
 
 @section('content')
 <div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
-    <h1 class="text-2xl font-bold text-gray-800 mb-6">Tambah CalonKaryawan</h1>
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Tambah Calon Karyawan</h1>
 
     <form action="saveCalonKaryawan" method="post" class="space-y-4">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        
         <div>
-            <label for="idCalonKaryawan" class="block text-sm font-medium text-gray-700">ID CalonKaryawan</label>
+            <label for="image" class="block text-sm font-medium text-gray-700">Foto Calon Karyawan</label>
+            <input type="file" name="image" id="image" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan ID CalonKaryawan">
+        </div>
+
+        <div>
+            <label for="idCalonKaryawan" class="block text-sm font-medium text-gray-700">ID Calon Karyawan</label>
             <input type="text" name="idCalonKaryawan" id="idCalonKaryawan" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan ID CalonKaryawan">
         </div>
 

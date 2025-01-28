@@ -14,11 +14,12 @@ class CalonKaryawanSeeder extends Seeder
     public function run(): void
     {
         DB::table('CalonKaryawan')->insert([
-            'idCalonKaryawan' => 'CK1',
+            'idCalonKaryawan' => '1',
             'nama' => 'Abel Indra',
             'umur' => 21,
             'jenisKelamin' => 'laki-laki',
             'riwayatPendidikan' => 'SMA',
+            'foto' => null,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

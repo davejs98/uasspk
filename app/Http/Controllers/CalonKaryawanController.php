@@ -16,6 +16,11 @@ class CalonKaryawanController extends Controller
     public function addCalonKaryawan(){
         return view('calonkaryawan.addCalonKaryawan');
     }
+    public function detailkonversiCalonKaryawan($idCalonKaryawan){
+        $x = new CalonKaryawan();
+        $hasil = $x->getCalonKaryawan($idCalonKaryawan);
+        return view('calonkaryawan.editCalonKaryawan', ["getCalonKaryawan" => $hasil]);
+    }
 
     public function saveCalonKaryawan(Request $request){
         $x = new CalonKaryawan();

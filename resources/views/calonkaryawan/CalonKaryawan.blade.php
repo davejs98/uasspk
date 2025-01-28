@@ -36,6 +36,10 @@
                                 class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
                             Hapus
                         </button>
+                        <button onclick="konversi('{{ $data->idCalonKaryawan }}')" 
+                                class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition">
+                            Detail
+                        </button>
                     </td>
                 </tr>
                 @endforeach
@@ -47,6 +51,9 @@
 <script>
     function detail(idCalonKaryawan) {
         window.location.href = 'editCalonKaryawan/' + idCalonKaryawan;
+    }
+    function konversi(idCalonKaryawan) {
+        window.location.href = 'detailkonversiCalonKaryawan/' + idCalonKaryawan;
     }
 
     function hapus(idCalonKaryawan) {

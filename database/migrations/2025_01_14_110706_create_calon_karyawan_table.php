@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('CalonKaryawan', function (Blueprint $table) {
-            $table->string('idCalonKaryawan')->primary();
+            $table->id('idCalonKaryawan')->primary();
             $table->string('nama');
             $table->integer('umur');
             $table->string('jenisKelamin');
             $table->string('riwayatPendidikan');
+            $table->string('foto')->nullable(); // Kolom untuk menyimpan gambar
             $table->timestamps();
         });
     }

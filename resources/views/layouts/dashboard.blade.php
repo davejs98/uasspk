@@ -44,14 +44,14 @@
             </svg>
             Calon Karyawan
         </a>
-        <a href="#"
+        <a href="konversi"
            class="flex items-center py-3 px-4 rounded-lg transition duration-200 hover:bg-gray-700 hover:scale-105">
             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                  xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M12 8v4l3 3m6 1.385V19a2 2 0 01-2 2H5a2 2 0 01-2-2v-2.615a1.997 1.997 0 01.757-1.554l7-4.09a2 2 0 012.486 0l7 4.09A1.997 1.997 0 0121 16.385z"></path>
             </svg>
-            Perhitungan
+            Konversi
         </a>
         <a href="#"
            class="flex items-center py-3 px-4 rounded-lg transition duration-200 hover:bg-gray-700 hover:scale-105">

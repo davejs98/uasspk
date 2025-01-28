@@ -18,7 +18,8 @@ class CalonKaryawan extends Model
             'nama' => $x -> nama,
             'umur' => $x -> umur,
             'jeniskelamin' => $x -> jenisKelamin,
-            'riwayatPendidikan' => $x -> riwayatPendidikan
+            'riwayatPendidikan' => $x -> riwayatPendidikan,
+            'foto' => $x -> foto
         ]);
     }
 
@@ -39,4 +40,5 @@ class CalonKaryawan extends Model
     public function deleteCalonKaryawan($idCalonKaryawan){
         DB::table('calonkaryawan')->where('idCalonKaryawan', '=', $idCalonKaryawan)->delete();
     }
+    
 }
