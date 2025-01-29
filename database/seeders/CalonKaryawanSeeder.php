@@ -14,14 +14,15 @@ class CalonKaryawanSeeder extends Seeder
     public function run(): void
     {
         DB::table('CalonKaryawan')->insert([
+            'image' => 'path/to/image.jpg',
             'idCalonKaryawan' => '1',
-            'nama' => 'Abel Indra',
-            'umur' => 21,
-            'jenisKelamin' => 'laki-laki',
-            'riwayatPendidikan' => 'SMA',
-            'foto' => null,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'nama' => 'John Doe',
+            'umur' => 30,
+            'jenisKelamin' => 'pria',
+            'riwayatPendidikan' => 'sarjana1',
+            'alamat' => 'Jl. Sudirman No. 123, Jakarta',
+            'latitude' => -6.200000,
+            'longitude' => 106.816666
         ]);
     }
 }

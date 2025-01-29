@@ -12,12 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('CalonKaryawan', function (Blueprint $table) {
-            $table->id('idCalonKaryawan')->primary();
+            $table->increments('idCalonKaryawan')->primary;
+            $table->string('image')->nullable();
             $table->string('nama');
             $table->integer('umur');
             $table->string('jenisKelamin');
             $table->string('riwayatPendidikan');
-            $table->string('foto')->nullable(); // Kolom untuk menyimpan gambar
+            $table->string('alamat');
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calon_karyawan');
+        Schema::dropIfExists('calonkaryawan');
     }
 };

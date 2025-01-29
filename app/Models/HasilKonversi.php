@@ -13,7 +13,7 @@ class HasilKonversi extends Model
 
     protected $fillable = [
         'nama',
-        'riwayat_pendidikan',
+        'riwayatPendidikan',
     ];
 
     // Accessor untuk konversi riwayat_pendidikan

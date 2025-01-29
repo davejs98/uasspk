@@ -3,6 +3,7 @@
 use App\Http\Controllers\CalonKaryawanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GoogleMapsController;
 use App\Http\Controllers\konversi;
 use App\Http\Controllers\KriteriaController;
 use Illuminate\Support\Facades\Route;
@@ -44,5 +45,6 @@ Route::get('/deleteCalonKaryawan/{idCalonKaryawan}', [CalonKaryawanController::c
 Route::get('/editCalonKaryawan/{idCalonKaryawan}', [CalonKaryawanController::class, 'editCalonKaryawan'])->middleware(['auth'])->name('editCalonKaryawan');
 
 Route::get('/konversi', [konversi::class, 'bacakonversi'])->middleware(['auth'])->name('bacakonversi');
+Route::get('/autocomplete', [GoogleMapsController::class, 'index'])->name('autocomplete');
 
 require __DIR__.'/auth.php';
