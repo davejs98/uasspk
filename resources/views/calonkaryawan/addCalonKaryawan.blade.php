@@ -45,6 +45,18 @@
             </select>
         </div>
         <div>
+            <label for="ratingPenampilan" class="block text-sm font-medium text-gray-700">Rating Penampilan</label>
+            <input type="number" name="ratingPenampilan" id="ratingPenampilan" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan rating penampilan 0-100">
+        </div>
+        <div>
+            <label for="jumlahSertifikat" class="block text-sm font-medium text-gray-700">Jumlah Sertifikat</label>
+            <input type="number" name="jumlahSertifikat" id="jumlahSertifikat" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Jumlah Sertifikat">
+        </div>
+        <div>
+            <label for="skorPraktik" class="block text-sm font-medium text-gray-700">Skor Praktik</label>
+            <input type="number" name="skorPraktik" id="skorPraktik" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Skor Praktik">
+        </div>
+        <div>
             <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
             <input id="autocomplete" type="text" placeholder="Enter your address" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>

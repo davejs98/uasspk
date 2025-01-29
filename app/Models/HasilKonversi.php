@@ -21,7 +21,7 @@ class HasilKonversi extends Model
     {
         $riwayatPendidikan = $this->attributes['riwayatPendidikan'];
 
-        if ($riwayatPendidikan == 'sarjana1') {
+        if ($riwayatPendidikan == 'Sarjana1') {
             return 4;
         } elseif ($riwayatPendidikan == 'sarjana2') {
             return 5;
