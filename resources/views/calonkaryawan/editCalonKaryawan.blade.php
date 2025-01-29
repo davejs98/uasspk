@@ -6,12 +6,6 @@
 
     <form action="/saveEditedCalonKaryawan" method="post" class="space-y-4">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        @if ($getCalonKaryawan->foto)
-            <img src="{{ asset('storage/' . $getCalonKaryawan->foto) }}" alt="Foto {{ $getCalonKaryawan ->foto }}" class="w-20 h-20 object-cover">
-        @else
-            <span class="text-gray-500">Tidak ada foto</span>
-        @endif
-
         <div>
             <label for="idCalonKaryawan" class="block text-sm font-medium text-gray-700">ID Calon Karyawan</label>
             <input type="text" name="idCalonKaryawan" id="idCalonKaryawan" value="{{ $getCalonKaryawan->idCalonKaryawan }}" 
@@ -50,6 +44,22 @@
                 <option value="sd" @if($getCalonKaryawan->jenisKelamin == 'SD Sederajat') selected @endif>SD Sederajat</option>
             </select>
         </div>
+        <div>
+            <label for="ratingPenampilan" class="block text-sm font-medium text-gray-700">Rating Penampilan</label>
+            <input type="number" name="ratingPenampilan" id="ratingPenampilan" value="{{ $getCalonKaryawan->ratingPenampilan }}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan rating penampilan 0-100">
+        </div>
+        <div>
+            <label for="jumlahSertifikat" class="block text-sm font-medium text-gray-700">Jumlah Sertifikat</label>
+            <input type="number" name="jumlahSertifikat" id="jumlahSertifikat" value="{{ $getCalonKaryawan->jumlahSertifikat }}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Jumlah Sertifikat">
+        </div>
+        <div>
+            <label for="skorPraktik" class="block text-sm font-medium text-gray-700">Skor Praktik</label>
+            <input type="number" name="skorPraktik" id="skorPraktik" value="{{ $getCalonKaryawan->skorPraktik }}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Skor Praktik">
+        </div>
+        <div>
+            <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
+            <input id="autocomplete" type="text" placeholder="Enter your address" value="{{ $getCalonKaryawan->alamat }}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
 
         <div>
             <button type="submit" 
@@ -59,4 +69,17 @@
         </div>
     </form>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+    let autocomplete, map, marker;
+
+    function initAutocomplete() {
+        // Initialize Google Autocomplete
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'),
+            { types: ['geocode'] }
+        );
+
+    }
+</script>
 @endsection

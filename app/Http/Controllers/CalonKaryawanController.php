@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\CalonKaryawan;
+use App\Models\HasilKonversi;
+use App\Models\ranking;
 use Illuminate\Http\Request;
 
 class CalonKaryawanController extends Controller
@@ -44,5 +46,24 @@ class CalonKaryawanController extends Controller
         $x = new CalonKaryawan();
         $x->deleteCalonKaryawan($idCalonKaryawan);
         return redirect() -> route('calonkaryawan');
+    }
+    public function index()
+    {
+        // Ambil semua data calon karyawan
+        $calonKaryawan = ranking::all();
+
+        // Bobot kriteria (sesuaikan dengan kebutuhan)
+        $weights = [
+            'riwayatPendidikan' => 0.3,
+            'ratingPenampilan' => 0.2,
+            'jumlahSertifikat' => 0.2,
+            'skorPraktik' => 0.3,
+        ];
+
+        // Lakukan perankingan
+        $rankedCalonKaryawan = ranking::rankCalonKaryawanWithWeights($calonKaryawan, $weights);
+
+        // Kirim data ke view
+        return view('Hasilakhir.hasilakhir', compact('rankedCalonKaryawan'));
     }
 }

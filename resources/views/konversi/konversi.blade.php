@@ -15,7 +15,9 @@
                 <tr>
                     <th class="border border-gray-300 px-4 py-2 text-left">Nama</th>
                     <th class="border border-gray-300 px-4 py-2 text-left">C1 (Riwayat Pendidikan)</th>
-                    <th class="border border-gray-300 px-4 py-2 text-center">Action</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">C2 (Rating Penampilan)</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">C3 (jumlah sertifikat)</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">C4 (skorPraktik)</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,48 +25,13 @@
                     <tr class="odd:bg-white even:bg-gray-50">
                     <td class="border border-gray-300 px-4 py-2">{{ $karyawan->nama }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $karyawan->riwayat_pendidikan_konversi }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $karyawan->ratingPenampilan }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $karyawan->jumlahSertifikat }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $karyawan->skorPraktik }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 </div>
-
-<script>
-    function detail(idCalonKaryawan) {
-        window.location.href = 'editCalonKaryawan/' + idCalonKaryawan;
-    }
-    function konversi(idCalonKaryawan) {
-        window.location.href = 'detailkonversiCalonKaryawan/' + idCalonKaryawan;
-    }
-
-    function hapus(idCalonKaryawan) {
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data ini akan dihapus secara permanen!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Terhapus!',
-                    'Data berhasil dihapus.',
-                    'success'
-                ).then(() => {
-                    window.location.href = 'deleteCalonKaryawan/' + idCalonKaryawan;
-                });
-            } else {
-                Swal.fire(
-                    'Dibatalkan',
-                    'Data Anda aman.',
-                    'info'
-                );
-            }
-        });
-    }
-</script>
 @endsection

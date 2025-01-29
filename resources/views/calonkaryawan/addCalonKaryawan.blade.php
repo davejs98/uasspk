@@ -6,10 +6,6 @@
 
     <form action="saveCalonKaryawan" method="post" class="space-y-4" enctype="multipart/form-data">
         @csrf
-        <div>
-            <label for="image" class="block text-sm font-medium text-gray-700">Foto Calon Karyawan</label>
-            <input type="file" name="image" id="image" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
 
         <div>
             <label for="idCalonKaryawan" class="block text-sm font-medium text-gray-700">ID Calon Karyawan</label>

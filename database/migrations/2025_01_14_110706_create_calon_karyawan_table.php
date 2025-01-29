@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('CalonKaryawan', function (Blueprint $table) {
             $table->increments('idCalonKaryawan')->primary;
-            $table->string('image')->nullable();
             $table->string('nama');
             $table->integer('umur');
             $table->string('jenisKelamin');
             $table->string('riwayatPendidikan');
+            $table->integer('ratingPenampilan');
+            $table->integer('jumlahSertifikat');
+            $table->integer('skorPraktik');
             $table->string('alamat');
-            $table->decimal('latitude', 10, 7)->nullable();
-            $table->decimal('longitude', 10, 7)->nullable();
             $table->timestamps();
         });
     }

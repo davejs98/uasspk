@@ -14,6 +14,9 @@ class HasilKonversi extends Model
     protected $fillable = [
         'nama',
         'riwayatPendidikan',
+        'ratingPenampilan',
+        'jumlahSertifikat',
+        'skorPraktik'
     ];
 
     // Accessor untuk konversi riwayat_pendidikan
@@ -21,7 +24,7 @@ class HasilKonversi extends Model
     {
         $riwayatPendidikan = $this->attributes['riwayatPendidikan'];
 
-        if ($riwayatPendidikan == 'Sarjana1') {
+        if ($riwayatPendidikan == 'sarjana1') {
             return 4;
         } elseif ($riwayatPendidikan == 'sarjana2') {
             return 5;

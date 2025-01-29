@@ -19,7 +19,10 @@ class CalonKaryawan extends Model
             'umur' => $x -> umur,
             'jeniskelamin' => $x -> jenisKelamin,
             'riwayatPendidikan' => $x -> riwayatPendidikan,
-            'foto' => $x -> foto
+            'ratingPenampilan' => $x -> ratingPenampilan,
+            'jumlahSertifikat' => $x -> jumlahSertifikat,
+            'skorPraktik' => $x -> skorPraktik,
+            'alamat' => $x -> alamat,
         ]);
     }
 
@@ -28,7 +31,11 @@ class CalonKaryawan extends Model
             'nama' => $x -> nama,
             'umur' => $x -> umur,
             'jeniskelamin' => $x -> jenisKelamin,
-            'riwayatPendidikan' => $x -> riwayatPendidikan
+            'riwayatPendidikan' => $x -> riwayatPendidikan,
+            'ratingPenampilan' => $x -> ratingPenampilan,
+            'jumlahSertifikat' => $x -> jumlahSertifikat,
+            'skorPraktik' => $x -> skorPraktik,
+            'alamat' => $x -> alamat,
         ]);
     }
 

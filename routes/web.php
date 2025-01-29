@@ -45,6 +45,6 @@ Route::get('/deleteCalonKaryawan/{idCalonKaryawan}', [CalonKaryawanController::c
 Route::get('/editCalonKaryawan/{idCalonKaryawan}', [CalonKaryawanController::class, 'editCalonKaryawan'])->middleware(['auth'])->name('editCalonKaryawan');
 
 Route::get('/konversi', [konversi::class, 'bacakonversi'])->middleware(['auth'])->name('bacakonversi');
-Route::get('/autocomplete', [GoogleMapsController::class, 'index'])->name('autocomplete');
+Route::get('/hasilakhir', [CalonKaryawanController::class, 'index'])->middleware(['auth'])->name('index');
 
 require __DIR__.'/auth.php';
