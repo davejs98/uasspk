@@ -20,7 +20,7 @@
 
         <div>
             <label for="umur" class="block text-sm font-medium text-gray-700">Umur</label>
-            <input type="number" name="umur" id="umur" value="{{ $getCalonKaryawan->umur }}" 
+            <input type="number" name="umur" id="umur" value="{{ $getCalonKaryawan->age }}" 
                 class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan umur Calon Karyawan">
         </div>
 

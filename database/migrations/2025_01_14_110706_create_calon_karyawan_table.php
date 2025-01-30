@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('CalonKaryawan', function (Blueprint $table) {
             $table->increments('idCalonKaryawan')->primary;
             $table->string('nama');
-            $table->integer('umur');
+            $table->date('tanggalLahir');
             $table->string('jenisKelamin');
             $table->string('riwayatPendidikan');
             $table->integer('ratingPenampilan');

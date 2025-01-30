@@ -24,7 +24,7 @@
                 @foreach($hasil as $data)
                     <tr class="odd:bg-white even:bg-gray-50">
                     <td class="border border-gray-300 px-4 py-2">{{$data->nama}}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{$data->umur}}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{$data->age}}</td>
                     <td class="border border-gray-300 px-4 py-2">{{$data->jenisKelamin}}</td>
                     <td class="border border-gray-300 px-4 py-2">{{$data->riwayatPendidikan}}</td>
                     <td class="border border-gray-300 px-4 py-2 text-center">

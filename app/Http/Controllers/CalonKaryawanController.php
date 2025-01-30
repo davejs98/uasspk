@@ -54,9 +54,9 @@ class CalonKaryawanController extends Controller
 
         // Bobot kriteria (sesuaikan dengan kebutuhan)
         $weights = [
-            'riwayatPendidikan' => 0.3,
+            'riwayatPendidikan' => 0.15,
             'ratingPenampilan' => 0.2,
-            'jumlahSertifikat' => 0.2,
+            'jumlahSertifikat' => 0.25,
             'skorPraktik' => 0.3,
         ];
 
