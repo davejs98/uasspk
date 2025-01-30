@@ -71,6 +71,9 @@
             <input type="text" name="alamat" id="autocomplete" placeholder="Enter your address" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
 
+        <input type="hidden" name="jarakRumah" id="jarakRumah">
+
+
         <div id="map" style="height: 400px; width: 100%;"></div>
 
         <div>
@@ -81,38 +84,99 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&libraries=places&callback=initAutocomplete" async defer></script>
 <script>
-    let autocomplete, map, marker;
+let autocomplete, map, marker;
 
-    function initAutocomplete() {
-        autocomplete = new google.maps.places.Autocomplete(
-            document.getElementById('autocomplete'),
-            { types: ['geocode'] }
-        );
-
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: -6.200000, lng: 106.816666 },
-            zoom: 15,
-        });
-
-        marker = new google.maps.Marker({
-            map: map,
-            anchorPoint: new google.maps.Point(0, -29),
-        });
-
-        autocomplete.addListener('place_changed', function () {
-            marker.setVisible(false);
-            const place = autocomplete.getPlace();
-
-            if (!place.geometry) {
-                alert("No details available for the selected address!");
-                return;
-            }
-
-            map.setCenter(place.geometry.location);
-            map.setZoom(15);
-            marker.setPosition(place.geometry.location);
-            marker.setVisible(true);
-        });
+function initAutocomplete() {
+    // Pastikan peta sudah ada
+    if (!document.getElementById('map')) {
+        console.error("Elemen map tidak ditemukan!");
+        return;
     }
+
+    // Inisialisasi Google Autocomplete
+    autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById('autocomplete'),
+        { types: ['geocode'] }
+    );
+
+    // Inisialisasi Google Map
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -6.200000, lng: 106.816666 }, // Default Jakarta
+        zoom: 12,
+    });
+
+    // Inisialisasi marker
+    marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29),
+    });
+
+    // Event listener saat alamat dipilih dari autocomplete
+    autocomplete.addListener('place_changed', function () {
+        const place = autocomplete.getPlace();
+
+        if (!place.geometry || !place.geometry.location) {
+            alert("Alamat tidak ditemukan. Silakan pilih alamat yang valid.");
+            return;
+        }
+
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+
+        // Update peta dan marker
+        map.setCenter(place.geometry.location);
+        map.setZoom(15);
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+
+        // Panggil fungsi untuk menghitung jarak
+        calculateDistance(lat, lng);
+    });
+}
+function calculateDistance(lat, lng) {
+    const companyLatLng = new google.maps.LatLng(-7.367411466698084, 112.72448151647734); // Koordinat perusahaan (Sidoarjo)
+
+    const service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix({
+        origins: [companyLatLng],
+        destinations: [{ lat, lng }],
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC, 
+    }, function (response, status) {
+        if (status === 'OK') {
+            const element = response.rows[0].elements[0];
+
+            if (element.status === "OK") {
+                let distanceText = element.distance.text; // Contoh: "8.6 km"
+                let durationText = element.duration.text; 
+
+                // Mengubah "8.6 km" menjadi "8.6" (angka decimal)
+                let distanceValue = parseFloat(distanceText.replace(" km", "").replace(",", "."));
+
+                // Cek apakah konversi berhasil
+                if (isNaN(distanceValue)) {
+                    alert("Error: Gagal mengonversi jarak ke angka.");
+                    return;
+                }
+
+                // Simpan ke input hidden agar dikirim ke backend
+                document.getElementById("jarakRumah").value = distanceValue;
+                document.getElementById("waktuTempuh").value = durationText;
+
+                alert(`Jarak dari perusahaan: ${distanceValue} km\nWaktu tempuh: ${durationText}`);
+            } else {
+                alert("Tidak dapat menghitung jarak ke alamat tersebut.");
+            }
+        } else {
+            alert('Error calculating distance: ' + status);
+        }
+    });
+}
+
+// Pastikan initAutocomplete dipanggil saat halaman selesai dimuat
+document.addEventListener("DOMContentLoaded", function () {
+    initAutocomplete();
+});
+
 </script>
 @endsection

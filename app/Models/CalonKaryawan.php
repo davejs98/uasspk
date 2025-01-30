@@ -19,6 +19,7 @@ class CalonKaryawan extends Model
             'idCalonKaryawan' => $x -> idCalonKaryawan,
             'nama' => $x -> nama,
             'tanggalLahir' => $x -> tanggalLahir,
+            'jarakRumah' => $x -> jarakRumah,
             'jeniskelamin' => $x -> jenisKelamin,
             'riwayatPendidikan' => $x -> riwayatPendidikan,
             'ratingPenampilan' => $x -> ratingPenampilan,

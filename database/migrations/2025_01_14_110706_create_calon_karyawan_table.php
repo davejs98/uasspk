@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('idCalonKaryawan')->primary;
             $table->string('nama');
             $table->date('tanggalLahir');
+            $table->decimal('jarakRumah');
             $table->string('jenisKelamin');
             $table->string('riwayatPendidikan');
             $table->integer('ratingPenampilan');
