@@ -17,6 +17,7 @@
                     <th class="border border-gray-300 px-4 py-2 text-left">Umur</th>
                     <th class="border border-gray-300 px-4 py-2 text-left">Jenis Kelamin</th>
                     <th class="border border-gray-300 px-4 py-2 text-left">Riwayat Pendidikan</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Jarak Rumah</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">Action</th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td class="border border-gray-300 px-4 py-2">{{$data->age}}</td>
                     <td class="border border-gray-300 px-4 py-2">{{$data->jenisKelamin}}</td>
                     <td class="border border-gray-300 px-4 py-2">{{$data->riwayatPendidikan}}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{$data->jarakRumah}} Km</td>
                     <td class="border border-gray-300 px-4 py-2 text-center">
                         <button onclick="detail('{{ $data->idCalonKaryawan }}')" 
                                 class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition">

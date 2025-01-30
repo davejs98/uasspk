@@ -18,6 +18,7 @@
                     <th class="border border-gray-300 px-4 py-2 text-center">C2 (Rating Penampilan)</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">C3 (jumlah sertifikat)</th>
                     <th class="border border-gray-300 px-4 py-2 text-center">C4 (skorPraktik)</th>
+                    <th class="border border-gray-300 px-4 py-2 text-center">C5 (Jarak Rumah)</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                     <td class="border border-gray-300 px-4 py-2">{{ $karyawan->ratingPenampilan }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $karyawan->jumlahSertifikat }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $karyawan->skorPraktik }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $karyawan->jarakRumah }}</td>
                 </tr>
                 @endforeach
             </tbody>

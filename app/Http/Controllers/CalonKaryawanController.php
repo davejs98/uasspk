@@ -49,21 +49,18 @@ class CalonKaryawanController extends Controller
     }
     public function index()
     {
-        // Ambil semua data calon karyawan
         $calonKaryawan = ranking::all();
 
-        // Bobot kriteria (sesuaikan dengan kebutuhan)
         $weights = [
             'riwayatPendidikan' => 0.15,
             'ratingPenampilan' => 0.2,
             'jumlahSertifikat' => 0.25,
             'skorPraktik' => 0.3,
+            'jarakRumah' => 0.1
         ];
 
-        // Lakukan perankingan
         $rankedCalonKaryawan = ranking::rankCalonKaryawanWithWeights($calonKaryawan, $weights);
 
-        // Kirim data ke view
         return view('Hasilakhir.hasilakhir', compact('rankedCalonKaryawan'));
     }
 }
